@@ -3,12 +3,12 @@ Python useful code tool.
 
 # Useful Tips
 ## 将github项目复制到本地环境
-* 首先cd 到Pycharm的workplace的目录下， 比如说：
+首先cd 到Pycharm的workplace的目录下， 比如说：
 > cd /Users/sophia/ProgramWorkPlace/PycharmProjects
-* 然后复制项目
+然后复制项目
 > git clone https://github.com/SmileLikeYe/XYSPythonTool.git
 
-`以下所有命令都在 /Users/sophia/ProgramWorkPlace/PycharmProjects/XYSPythonTool 下进行`
+`ps: 以下所有命令都在 /Users/sophia/ProgramWorkPlace/PycharmProjects/XYSPythonTool 下进行`
 ## 查看github上其他人提交记录
 > git log
 ## 从github拉取最新代码到本地
