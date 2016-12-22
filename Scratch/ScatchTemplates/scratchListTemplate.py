@@ -20,20 +20,19 @@ def getListData(outputfile, *args):
     html = requests.get(url, headers=headers).text
     beautyHtml = BeautifulSoup(html, 'lxml')
 
-    # 死散步：最重要的定制规则
-
+    # 第三步：最重要的定制规则
     # 搜索tag
     tag = beautyHtml.find('div', attrs={'class': 'bottom'})
     tags = beautyHtml.find_all('div')
     tags = beautyHtml.find_all(id='html')
     sub_tags = tag.find_all('div')
 
-    # 获取标签的值
-    content = tag.div.string  # type: bs4.element.NavigableString 也是一种unicode, 可以用str() 进行转换
-    content = tag.head.text  # type: bs4.element.NavigableString 也是一种unicode, 可以用str() 进行转换
+    # 获取tag的值
+    tag_value = tag.div.string  # type: bs4.element.NavigableString 也是一种unicode, 可以用str() 进行转换
+    tag_value = tag.head.text  # type: bs4.element.NavigableString 也是一种unicode, 可以用str() 进行转换
 
-    # 获取属性的值
-    property = tag['class'].string
+    # 获取property的值
+    property_value = tag['class'].string
 
 
 if __name__ == '__main':
