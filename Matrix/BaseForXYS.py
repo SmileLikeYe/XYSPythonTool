@@ -60,7 +60,16 @@ print np.dot(np.linalg.det(s1),np.linalg.inv(s1))
 # 矩阵 运算 范数
 print np.linalg.norm(s1)
 
-
-
+'''----------矩阵 属性----------'''
+# 矩阵 属性 维度
+print s1.ndim
+# 矩阵 属性 每一维的元素个数
+print s1.shape
+# 矩阵 属性 元素个数
+print s1.size
+# 矩阵 属性 元素类型
+print s1.dtype
+# 矩阵 属性 每个元素占用的字节大小
+print s1.itemsize
 
 
