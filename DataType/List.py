@@ -24,3 +24,7 @@ for ele in l:
 
 # Len
 print len(l)
+
+# solve chinese messy code
+import json
+print json.dumps(["中国", "美国"]).decode("unicode-escape")

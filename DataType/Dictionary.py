@@ -30,3 +30,7 @@ for v in dic.values():
 
 # length
 print len(dic)
+
+# solve chinese messy code
+import json
+print json.dumps({"country": ["中国", "美国"]}).decode("unicode-escape")
