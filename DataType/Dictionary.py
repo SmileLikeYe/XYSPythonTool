@@ -9,10 +9,6 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 
-import sys
-reload(sys)
-sys.setdefaultencoding = ('utf8')
-
 # Init
 dic = {'id':1, 'username':'smile', 'password':'1234'}
 

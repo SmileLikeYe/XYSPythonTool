@@ -13,6 +13,14 @@ import xlwt
 wb = xlwt.Workbook()
 ws = wb.add_sheet('newSheet', cell_overwrite_ok=True)
 
+#一行一行的写入
+for i in xrange(0, 100):
+    ws.write(i, 0 , label="ganbadie")
+    ws.write(i, 1 , label="ganbadie")
+
+wb.save("/Users/i309929/Desktop/3.xls")
+
+
 # 还可以改字体,布局
 style = xlwt.XFStyle()
 
@@ -22,4 +30,3 @@ font.bold = True
 style.font = font
 
 ws.write(0, 0, label="hhh", style=style)
-wb.save("/Users/i309929/Desktop/3.xls")
