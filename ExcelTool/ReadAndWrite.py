@@ -21,7 +21,7 @@ excelFilePath = '/Users/i309929/Desktop/sougou.xls'
 rb = xlrd.open_workbook(excelFilePath)
 rs = rb.sheet_by_index(0)
 
-wb = xlwt.Workbook()
+wb = xlwt.Workbook(encoding="utf-8")
 ws = wb.add_sheet('newSheet', cell_overwrite_ok=True)
 
 # -------------常用读循环-------------

@@ -10,7 +10,7 @@ sys.setdefaultencoding('utf-8')
 
 import xlwt
 
-wb = xlwt.Workbook()
+wb = xlwt.Workbook(encoding="utf-8")
 ws = wb.add_sheet('newSheet', cell_overwrite_ok=True)
 
 #一行一行的写入
