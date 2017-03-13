@@ -14,16 +14,11 @@ import math
 import ast
 import json
 import smileRequest
+import traceback
 
-def getKeyTreeByKeyword(keyword):
+def getKeyTree(paramList):
     url = 'http://wenshu.court.gov.cn/List/TreeContent?MmEwMD=131I2hlDDV1G9eWZFw1Af.xWbuVR7Iw8RQraIzOPn.swdkWoG_5ulzmcsskoADfE0MAcnw8JFPKJTJgP4tqiHekIIviPYaEMYK0CYCgRn.iCjRtM0pMWTqut3JKkzyqRDHCSQa_AYIVTaA5ci78hJh8DU6rdD7twbznOYqmGsm1hEeKcQh36JL_sLz1MGC8N9uh2C5GNjKcg6AfyMHoony8P5VTrQLf5JyHbs6ZwwxKHt_Fos.vViurWuFBfdJPZbFo66Aw4OOdoXUCx4P8tsAnEL2GMBfR4ywE87EelCkcN1xjzX3QgS84SDLq6rMAQ6xB.gfjcO5uz.KFsemwg7a_PgcCLjpspxYXVAwk3kk4Fh'
-    data = {
-        'Param': '全文检索:'+str(keyword),
-        'Index': 1,
-        'Page': '20',
-        'Order': '法院层级',
-        'Direction': 'asc',
-    }
+    data = constructPostData(paramList)
 
     html = smileRequest.post(url,data=data)
     result = html.replace('\\', '')[1:-1]
@@ -85,7 +80,7 @@ def generate_genericPL(firstParList):
         url = 'http://wenshu.court.gov.cn/List/ListContent?MmEwMD=1DcN35G46.LvqUNeekbyWo764zaFs9tdpVyRS2iO0IfIRVrUBEbvDckfBYt_EBxNu6Kxe3wZs0u02lUUObbU6169n2uk0FVjxyoqr5yx6mA61E0EzQi9isZYmCzbndnmyJwWBhEhOjDJ4xbsf.jo_S.bc1uf7yP3858taauT55WZesC0YOKA91g8k7mllZxTA35Np8yB0oRgXqUwunuZNLZl5vR9f4juAvkxBQyfVPQpo3UEv70JKyzl8dsiFwYOicq5x0B4Lh0TYPO9r6tmZt.AlJMjGiL_.OZwpWPgmRB2ouOh8IHT_ueZQrJpeLvk9AYzRDFK5v6Gyi5g2YNqdKEeNciLHAScvA9iadLLEgPyh'
 
         # 获得对应管检测的keyTree
-        keyTree = getKeyTreeByKeyword(keyword)
+        keyTree = getKeyTree(firstParList[0])
         for key in keyTree.keys(): print key
         del keyTree['审判程序']
         keys = keyTree.keys()
@@ -137,6 +132,7 @@ def generate_genericPL(firstParList):
         return True
     except Exception as e:
         print 'generate_genericPL 出现意外：',e
+        traceback.print_exc()
         return False
 
 # 读出文件里面的参数列表和结果个数
