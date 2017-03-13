@@ -14,6 +14,7 @@ dic = {'id':1, 'username':'smile', 'password':'1234'}
 
 # Add
 dic['gender'] = 'male'
+dic.update({'name': 'py'})
 
 # Delete
 del dic['gender']

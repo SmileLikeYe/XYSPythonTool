@@ -70,8 +70,8 @@ class ScrathTable:
 
         self.__getExcel(outputSheet, url)
 
-        if outputFilePath == "currentFolder/outputTableFile.xls":
-            outputFilePath=self.outputFilePath
+        if outputFilePath != "currentFolder/outputTableFile.xls":
+            self.outputFilePath = os.path.dirname(__file__) + outputFilePath
 
-        print "生成Excel成功：" + outputFilePath
+        print "生成Excel成功：" + self.outputFilePath
         outputFile.save(self.outputFilePath)
