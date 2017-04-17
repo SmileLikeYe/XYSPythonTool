@@ -14,6 +14,7 @@ def getMobileInfo(base_url, page):
     result = []
 
     for i in range(0,page,1):
+        # 拼接url
         url = ''.join([base_url, str(i), '.html'])
         html = requests.get(url, headers=headers).text
         beautyHtml = BeautifulSoup(html, 'lxml')
@@ -23,7 +24,9 @@ def getMobileInfo(base_url, page):
 
         if div_list:
             for item in div_list:
+                # 取得tag属性的值
                 href = item.div.h3.a['href']
+                # 取得tag的值
                 name = item.div.h3.a.text.encode('utf-8')
                 reg = '201\d年\d+月'
                 regResul = re.findall(reg, name, re.S)
@@ -35,6 +38,7 @@ def getMobileInfo(base_url, page):
 
 
 if __name__ == '__main__':
+    # 翻页爬取html内容
     base_url = 'http://www.pc841.com/tags/newmobile-'
     page = 12
     getMobileInfo(base_url, page)

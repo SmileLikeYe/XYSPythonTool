@@ -13,17 +13,21 @@ headers = {
     'Accept-Language': 'en-US,en;q=0.5',
     'Accept-Encoding': 'gzip, deflate',
     'Connection': 'keep-alive'}
+
+#
 url = ""
 postdata= {
 }
 
+# 请求
 result = requests.get(url,headers=headers).text
 result = requests.post(url,data=postdata, headers=headers).text
 
+# 对返回的string进行按照 自己的 需求进行清洗
 result = result.replace('\n','')[4:]
 result = result.replace('null,', '')
-# 这里一定还有剩下的null要处理，因为单独的null是不是python的变量
 
+# 将list  dic 类型的string转成 list dic
 clean_result = ast.literal_eval(result)
 
 print json.dumps(clean_result).decode("unicode-escape")
