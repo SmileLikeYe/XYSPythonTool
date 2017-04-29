@@ -14,8 +14,8 @@ git log
 ## 从github拉取最新代码到本地		
 git pull		
 ## 本地修改代码后，提交到github		
-git add .		
-git commit -m "add some commit for your this commit code"		
+git add .  
+git commit -m "add some commit for your this commit code"  
 git push		
 ## 查看本地文件的状态，是否有被修改，是否有被提交		
 git status
