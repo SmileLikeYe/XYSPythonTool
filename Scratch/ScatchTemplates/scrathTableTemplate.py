@@ -27,8 +27,9 @@ start_row = 0
 def getExcelFromWebTable(outputSheet, *keyword):
     url = ''.join(keyword)
     print url
-    html = requests.get(url, headers=headers).text
-    beautyHtml = BeautifulSoup(html, 'lxml')
+    html = requests.get(url, headers=headers)
+    html.encoding = "utf-8"
+    beautyHtml = BeautifulSoup(html.text, 'lxml')
 
     tables = beautyHtml.find_all('table')
     if tables:
@@ -89,6 +90,6 @@ if __name__ == '__main__':
     outputFile = ExcelWrite.Workbook(encoding='utf-8')
     outputSheet = outputFile.add_sheet("output_sheet", cell_overwrite_ok=True)
 
-    getExcelFromWebTable(outputSheet, 'http://tianqihoubao.com/weather/top/beijing.html')
+    getExcelFromWebTable(outputSheet, 'http://www.wdzj.com/pingji.html')
 
-    outputFile.save('/Users/i309929/Desktop/output.xls')
+    outputFile.save('output.xls')
