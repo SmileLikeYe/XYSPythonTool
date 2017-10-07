@@ -90,6 +90,6 @@ if __name__ == '__main__':
     outputFile = ExcelWrite.Workbook(encoding='utf-8')
     outputSheet = outputFile.add_sheet("output_sheet", cell_overwrite_ok=True)
 
-    getExcelFromWebTable(outputSheet, 'http://www.wdzj.com/pingji.html')
+    getExcelFromWebTable(outputSheet, 'http://www.eol.cn/html/g/gxmd/211.shtml')
 
     outputFile.save('output.xls')
