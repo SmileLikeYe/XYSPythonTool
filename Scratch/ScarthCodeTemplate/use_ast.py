@@ -14,7 +14,7 @@ headers = {
     'Accept-Encoding': 'gzip, deflate',
     'Connection': 'keep-alive'}
 
-#
+# 定义基础数据
 url = ""
 postdata= {
 }

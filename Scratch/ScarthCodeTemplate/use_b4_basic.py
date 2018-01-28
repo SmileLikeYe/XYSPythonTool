@@ -13,6 +13,7 @@ headers = {
 
 url = ""
 html = requests.get(url, headers=headers).text
+print html
 
 beautyHtml = BeautifulSoup(html, 'lxml')
 div_list = beautyHtml.find_all('div', attrs={'class': 'feeds-item'})

@@ -18,7 +18,8 @@ headers_default = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
     'Accept-Language': 'en-US,en;q=0.5',
     'Accept-Encoding': 'gzip, deflate',
-    'Connection': 'keep-alive'}
+    'Connection': 'keep-alive'
+}
 
 # 请定义你想要的reponse是什么样子的
 def isGetWantedResponse(response):
@@ -49,7 +50,7 @@ def isPostWantedResponse(response):
 
 def getTheBestProxiesAndIp():
     try:
-        r = requests.get('http://127.0.0.1:7999/?count=1')
+        r = requests.get('http://127.0.0.1:7999/?count=1', timeout=5)
     except requests.exceptions.ConnectionError as e:
         raise Exception('多半是没有开启IPProxy服务哦~：', e)
 
@@ -70,7 +71,7 @@ def getTheBestProxiesAndIp():
 
 def getCurrentIp():
     try:
-        r = requests.get('http://127.0.0.1:7999/?count=1')
+        r = requests.get('http://127.0.0.1:7999/?count=1', timeout=5)
     except requests.exceptions.ConnectionError as e:
         raise Exception('多半是没有开启IPProxy服务哦~：', e)
 
@@ -153,7 +154,7 @@ def get(url, headers=headers_default, timeout=10):
         print '【代理】---------------------'
         print '【代理】尝试代理次数：',i
         if i==1:
-            response = getWithProxies(url,isDeleteProxies=False, headers=headers, timeout=timeout)
+            response = getWithProxies(url, isDeleteProxies=False, headers=headers, timeout=timeout)
         else:
             response = getWithProxies(url, isDeleteProxies=True, headers=headers, timeout=timeout)
 
